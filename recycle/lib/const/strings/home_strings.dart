@@ -1,4 +1,4 @@
 mixin HomeString {
   String continueTextButton = "Continue";
-  String welcome = "WELCOME";
+  String welcome = "WELCOME!";
 }

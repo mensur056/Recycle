@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recycle/ui/screens/onboarding/onboarding_view.dart';
+import 'package:recycle/const/theme.dart';
+import 'package:recycle/ui/screens/login/login_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Recycle',
-      home: OnboardingView(),
+      theme: ProjectTheme.primaryTheme,
+      home: const LoginView(),
     );
   }
 }
