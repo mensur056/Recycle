@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recycle/const/theme.dart';
-import 'package:recycle/ui/screens/login/login_view.dart';
+import 'package:recycle/ui/screens/login/register_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Recycle',
       theme: ProjectTheme.primaryTheme,
-      home: const LoginView(),
+      home: const RegisterView(),
     );
   }
 }

@@ -26,10 +26,6 @@ class _LoginViewState extends State<LoginView> with ProjectPaddings, ProjectColo
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          toolbarHeight: 72,
-          shape: const RoundedRectangleBorder(borderRadius: ProjectBorders.radiusCircularVertical44),
-        ),
         body: Padding(
           padding: paddingAll32,
           child: Column(

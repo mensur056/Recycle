@@ -7,4 +7,6 @@ mixin LoginStrings {
   String haveAccount = "Don't have any account?";
   String buttonSigUp = 'Sign up';
   String buttonSigIn = 'Sign in';
+  String hintNumber = '+994';
+  String labelNumber = 'Your number';
 }
