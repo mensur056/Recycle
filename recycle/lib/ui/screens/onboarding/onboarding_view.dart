@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recycle/const/borders/project_borders.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
+import 'package:recycle/const/paths/image_paths.dart';
 import 'package:recycle/const/strings/home_strings.dart';
-import 'package:recycle/const/strings/image_path.dart';
 
 // ignore: must_be_immutable
 class OnboardingView extends StatelessWidget with ImagePath, HomeString, ProjectPaddings {

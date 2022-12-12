@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recycle/const/padding/project_paddings.dart';
+import 'package:recycle/const/paths/image_paths.dart';
+import 'package:recycle/const/strings/home_strings.dart';
+import 'package:recycle/utility/widgets/catagory_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -8,12 +12,28 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with ImagePaths, ProjectPaddings, HomeString {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomNavBar(),
       appBar: AppBar(),
+      body: Padding(
+        padding: paddingAll8,
+        child: GridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+          children: [
+            CatagoryCard(imagePath: plasticImage, title: plastic),
+            CatagoryCard(imagePath: appleImage, title: organics),
+            CatagoryCard(imagePath: glassImage, title: glass),
+            CatagoryCard(imagePath: spoonImage, title: metal),
+            CatagoryCard(imagePath: paperImage, title: paper),
+            CatagoryCard(imagePath: otherImage, title: other),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -27,7 +47,7 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 2;
-  double iconWidth = 30;
+  double iconWidth = 32;
 
   void changeIndex(int index) {
     setState(() {

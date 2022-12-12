@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:recycle/const/borders/project_borders.dart';
 import 'package:recycle/const/colors/project_colors.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
-import 'package:recycle/const/strings/image_path.dart';
+import 'package:recycle/const/paths/image_paths.dart';
 import 'package:recycle/const/strings/login_strings.dart';
 import 'package:recycle/ui/shared/custom_textfield.dart';
 
