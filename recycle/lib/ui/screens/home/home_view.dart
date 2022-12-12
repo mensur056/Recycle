@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recycle/const/borders/project_borders.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
 import 'package:recycle/const/paths/image_paths.dart';
 import 'package:recycle/const/strings/home_strings.dart';
@@ -17,7 +18,7 @@ class _HomeViewState extends State<HomeView> with ImagePaths, ProjectPaddings, H
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomNavBar(),
-      appBar: AppBar(),
+      appBar: appBar(),
       body: Padding(
         padding: paddingAll8,
         child: GridView(
@@ -34,6 +35,20 @@ class _HomeViewState extends State<HomeView> with ImagePaths, ProjectPaddings, H
           ],
         ),
       ),
+    );
+  }
+
+  AppBar appBar() {
+    return AppBar(
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+            borderRadius: ProjectBorders.radiusCircularVertical44,
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Color.fromARGB(255, 74, 214, 79), Color.fromARGB(255, 22, 210, 29)])),
+      ),
+      toolbarHeight: 100,
     );
   }
 }
