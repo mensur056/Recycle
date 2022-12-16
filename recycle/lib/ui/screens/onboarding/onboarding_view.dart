@@ -1,43 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recycle/const/borders/project_borders.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
 import 'package:recycle/const/paths/image_paths.dart';
 import 'package:recycle/const/strings/home_strings.dart';
+import 'package:recycle/ui/screens/home/home_view.dart';
 
 // ignore: must_be_immutable
-class OnboardingView extends StatelessWidget with ImagePath, HomeString, ProjectPaddings {
-  OnboardingView({super.key});
+class OnboardingView extends StatefulWidget {
+  const OnboardingView({super.key});
+
+  @override
+  State<OnboardingView> createState() => _OnboardingViewState();
+}
+
+class _OnboardingViewState extends State<OnboardingView> with ImagePath, HomeString, ProjectPaddings {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) {
+          return const HomeView();
+        },
+      ));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.asset(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
           backgroundImage,
         ),
         Scaffold(
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              shape: const RoundedRectangleBorder(borderRadius: ProjectBorders.radiusCircular20),
-            ),
-            onPressed: () {},
-            child: Padding(
-              padding: paddingAll12,
-              child: Text(
-                continueTextButton,
-                style: GoogleFonts.aleo(
-                  color: Colors.white,
-                  fontSize: 24,
-                  shadows: [
-                    const Shadow(offset: Offset(1, 1), blurRadius: 5, color: Colors.grey),
-                  ],
-                ),
-              ),
-            ),
-          ),
           backgroundColor: Colors.transparent,
           body: Padding(
             padding: paddingAll24,

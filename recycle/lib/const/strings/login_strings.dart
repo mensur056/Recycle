@@ -1,6 +1,8 @@
 mixin LoginStrings {
   String login = 'LOG IN';
   String hintEmail = 'Enter your email';
+  String labelName = 'Your name';
+  String hintName = 'Enter your name';
   String hintPassword = 'Enter your password';
   String labelEmail = 'Your email';
   String labelPassword = 'Your password';

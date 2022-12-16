@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kartal/kartal.dart';
 import 'package:recycle/const/borders/project_borders.dart';
 import 'package:recycle/const/colors/project_colors.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
@@ -41,6 +42,7 @@ class _LoginViewState extends State<LoginView> with ProjectPaddings, ProjectColo
                 height: 20,
               ),
               CustomTextField(
+                validator: (value) => (value?.isValidEmail ?? false) ? null : 'Problem',
                 hintText: hintEmail,
                 isObscure: false,
                 labelText: labelEmail,
@@ -49,6 +51,7 @@ class _LoginViewState extends State<LoginView> with ProjectPaddings, ProjectColo
                 height: 10,
               ),
               CustomTextField(
+                validator: (value) => (value?.isValidEmail ?? false) ? null : 'Problem',
                 hintText: hintPassword,
                 isObscure: true,
                 labelText: labelPassword,

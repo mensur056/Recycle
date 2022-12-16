@@ -6,13 +6,22 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     required this.isObscure,
     required this.labelText,
+    required this.validator,
+    this.keyType = TextInputType.emailAddress,
+    this.textAction = TextInputAction.next,
   }) : super(key: key);
   final String hintText;
   final bool isObscure;
   final String labelText;
+  final String? Function(String? value) validator;
+  final TextInputType keyType;
+  final TextInputAction textAction;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      textInputAction: textAction,
+      keyboardType: keyType,
+      validator: validator,
       obscureText: isObscure,
       decoration: InputDecoration(
         hintStyle: TextStyle(color: Colors.grey.shade500, fontSize: 14),
