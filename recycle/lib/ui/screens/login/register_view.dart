@@ -126,7 +126,7 @@ class _RegisterViewState extends ProjectLoading<RegisterView>
                             ),
                           );
                         }
-                        print('sdfsd');
+                        print('---------');
                       },
                     )
                   ],

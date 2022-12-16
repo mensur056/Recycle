@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:recycle/const/padding/project_paddings.dart';
 import 'package:recycle/const/paths/image_paths.dart';
 import 'package:recycle/const/strings/home_strings.dart';
-import 'package:recycle/ui/screens/home/home_view.dart';
+import 'package:recycle/ui/screens/login/login_view.dart';
 
 // ignore: must_be_immutable
 class OnboardingView extends StatefulWidget {
@@ -20,7 +20,7 @@ class _OnboardingViewState extends State<OnboardingView> with ImagePath, HomeStr
     Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) {
-          return const HomeView();
+          return const LoginView();
         },
       ));
     });
