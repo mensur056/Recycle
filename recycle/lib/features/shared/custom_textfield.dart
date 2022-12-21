@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     required this.validator,
     this.keyType = TextInputType.emailAddress,
     this.textAction = TextInputAction.next,
+    required this.controller,
   }) : super(key: key);
   final String hintText;
   final bool isObscure;
@@ -16,9 +17,11 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String? value) validator;
   final TextInputType keyType;
   final TextInputAction textAction;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       textInputAction: textAction,
       keyboardType: keyType,
       validator: validator,

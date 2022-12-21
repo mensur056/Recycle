@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:recycle/const/borders/project_borders.dart';
-import 'package:recycle/const/padding/project_paddings.dart';
-import 'package:recycle/const/paths/image_paths.dart';
-import 'package:recycle/const/strings/home_strings.dart';
-import 'package:recycle/utility/widgets/catagory_card.dart';
+import 'package:recycle/product/const/borders/project_borders.dart';
+import 'package:recycle/product/const/padding/project_paddings.dart';
+import 'package:recycle/product/const/paths/image_paths.dart';
+import 'package:recycle/product/const/strings/home_strings.dart';
+import 'package:recycle/product/widgets/catagory_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

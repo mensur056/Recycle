@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recycle/const/padding/project_paddings.dart';
-import 'package:recycle/const/paths/image_paths.dart';
-import 'package:recycle/const/strings/home_strings.dart';
-import 'package:recycle/ui/screens/login/login_view.dart';
+import 'package:recycle/product/const/padding/project_paddings.dart';
+import 'package:recycle/product/const/paths/image_paths.dart';
+import 'package:recycle/product/const/strings/home_strings.dart';
+import 'package:recycle/features/screens/login/login_view.dart';
 
 // ignore: must_be_immutable
 class OnboardingView extends StatefulWidget {

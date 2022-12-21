@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recycle/const/borders/project_borders.dart';
-import 'package:recycle/const/padding/project_paddings.dart';
+import 'package:recycle/product/const/borders/project_borders.dart';
+import 'package:recycle/product/const/padding/project_paddings.dart';
 
 // ignore: must_be_immutable
 class CatagoryCard extends StatelessWidget with ProjectPaddings {

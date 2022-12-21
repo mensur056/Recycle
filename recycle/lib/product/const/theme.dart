@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recycle/const/borders/project_borders.dart';
+import 'package:recycle/product/const/borders/project_borders.dart';
 
 class ProjectTheme {
   static ThemeData primaryTheme = ThemeData(
