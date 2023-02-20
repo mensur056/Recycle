@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +12,6 @@ import 'package:recycle/product/const/paths/image_paths.dart';
 import 'package:recycle/product/const/strings/global_navigator_name.dart';
 import 'package:recycle/product/const/strings/login_strings.dart';
 import 'package:recycle/features/shared/custom_textfield.dart';
-import 'package:recycle/product/network/user_network.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,7 +28,8 @@ class _LoginViewState extends State<LoginView>
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(HomeService(UserNetworkManager())),
+      create: (context) =>
+          HomeCubit(HomeService(Dio(BaseOptions(baseUrl: 'https://recycle-d84ec-default-rtdb.firebaseio.com/')))),
       child: Stack(children: [
         Image.asset(
           testImages,
@@ -101,6 +102,7 @@ class _LoginViewState extends State<LoginView>
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                      backgroundColor: (globalKey.currentState?.validate() ?? false) ? null : Colors.grey.shade400,
                       shape: const RoundedRectangleBorder(borderRadius: ProjectBorders.radiusCircular20)),
                   child: Padding(
                     padding: paddingAll12,

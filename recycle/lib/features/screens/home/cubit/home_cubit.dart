@@ -13,13 +13,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> sendUserModelInfo(UserModel model) async {
-    _changeLoading();
     final response = await homeService.sendUserItemToService(model);
-
-    _changeLoading();
   }
 
-  void _changeLoading() {
+  void changeLoading(bool val) {
     emit(state.copyWith(isLoading: !(state.isLoading ?? false)));
   }
 }

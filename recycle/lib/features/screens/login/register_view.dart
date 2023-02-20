@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,11 +11,11 @@ import 'package:recycle/product/const/padding/project_paddings.dart';
 import 'package:recycle/product/const/paths/image_paths.dart';
 import 'package:recycle/product/const/strings/login_strings.dart';
 import 'package:recycle/product/const/strings/register_strings.dart';
-import 'package:recycle/features/screens/login/login_view.dart';
 import 'package:recycle/features/shared/custom_textfield.dart';
-import 'package:recycle/product/network/user_network.dart';
 import 'package:recycle/product/utility/abstract_class.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../product/const/strings/global_navigator_name.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -24,7 +25,7 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends ProjectLoading<RegisterView>
-    with ImagePath, ProjectPaddings, LoginStrings, ProjectColors {
+    with ImagePath, ProjectPaddings, LoginStrings, ProjectColors, NavigatorName {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController userNameController = TextEditingController();
@@ -34,7 +35,8 @@ class _RegisterViewState extends ProjectLoading<RegisterView>
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(HomeService(UserNetworkManager())),
+      create: (context) =>
+          HomeCubit(HomeService(Dio(BaseOptions(baseUrl: 'https://recycle-d84ec-default-rtdb.firebaseio.com/')))),
       child: Stack(
         children: [
           Image.asset(
@@ -120,9 +122,10 @@ class _RegisterViewState extends ProjectLoading<RegisterView>
                   Row(
                     children: [
                       Checkbox(
-                        value: isLoading ? true : false,
+                        value: (state.isLoading ?? false) ? true : false,
                         onChanged: (val) {
-                          changeLoading();
+                          context.read<HomeCubit>().changeLoading(val ?? false);
+                          print(val);
                         },
                       ),
                       Text(RegisterStrings.agree, style: GoogleFonts.actor(color: Colors.black))
@@ -148,15 +151,11 @@ class _RegisterViewState extends ProjectLoading<RegisterView>
                       if (globalKey.currentState?.validate() ?? false) {
                         final model = UserModel(
                             email: emailController.text,
-                            password: int.tryParse(passwordController.text),
+                            password: passwordController.text,
                             userName: userNameController.text,
                             number: int.tryParse(numberController.text));
                         context.read<HomeCubit>().sendUserModelInfo(model);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const LoginView(),
-                          ),
-                        );
+                        context.navigateName(loginPath);
                       }
                     },
                   )
